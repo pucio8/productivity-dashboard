@@ -4,11 +4,9 @@
 
 A clean and modern dashboard featuring a To-Do List and a Weekly Focus Tracker. This project is built entirely with vanilla HTML, CSS, and JavaScript, demonstrating core web development concepts without any frameworks. All data is saved locally in your browser using `localStorage`.
 
-**[➡️ View Live Demo](https://your-username.github.io/productivity-dashboard/)** *(Remember to replace "your-username" with your actual GitHub username!)*
+**[➡️ View Live Demo](https://pucio8.github.io/productivity-dashboard/)**
 
 ![App Screenshot](screenshot.png)
-*(Tip: Take a screenshot of the app, save it as "screenshot.png" in your project folder, and it will appear here.)*
-
 ## ✨ Features
 
 This application combines two essential productivity tools in a single, responsive interface:
@@ -35,7 +33,7 @@ This application combines two essential productivity tools in a single, responsi
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/productivity-dashboard.git](https://github.com/your-username/productivity-dashboard.git)
+    git clone [https://github.com/pucio8/productivity-dashboard.git](https://github.com/pucio8/productivity-dashboard.git)
     ```
 2.  **Navigate to the project directory:**
     ```bash
@@ -47,4 +45,4 @@ That's it! The application is fully client-side and requires no build steps or d
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/your-username/productivity-dashboard/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/pucio8/productivity-dashboard/issues).
