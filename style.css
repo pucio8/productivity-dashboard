@@ -1,0 +1,292 @@
+/**
+ * @file style.css
+ * @description Main stylesheet for the To-Do & Focus Tracker application.
+ * @version 1.0.0
+ */
+
+
+/* --- CSS Custom Properties (Variables) --- */
+:root {
+    --bg-color: #f4f7f9;
+    --container-bg: #ffffff;
+    --primary-color: #4a90e2;
+    --primary-hover-color: #357abd;
+    --text-color: #333333;
+    --secondary-text-color: #888888;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --delete-color: #e74c3c;
+    --delete-hover-color: #c0392b;
+    --completed-color: #2ecc71; /* Green for completed state */
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* --- Base Styles & Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* --- Main Layout --- */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* --- Shared Component Styles --- */
+
+/* Styles for both left and right column containers */
+.todo-container, .weekly-tracker-container {
+    padding: 30px;
+    background: var(--container-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+/* Shared header styles for both containers */
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.header h1 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: var(--secondary-text-color);
+    font-size: 0.9em;
+}
+
+/* --- To-Do List Styles (Left Column) --- */
+.task-input-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#task-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.task-input-form button {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.task-input-form button:hover {
+    background: var(--primary-hover-color);
+}
+
+#task-list {
+    list-style-type: none;
+}
+
+#task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    word-break: break-word;
+}
+
+#task-list li:hover {
+    background-color: #e9eff5;
+}
+
+#task-list li span {
+    flex-grow: 1;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: var(--secondary-text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 15px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.delete-btn:hover {
+    color: var(--delete-color);
+    transform: scale(1.2);
+}
+
+/* --- Weekly Tracker Styles (Right Column) --- */
+
+/* Overrides for the tracker header to accommodate navigation */
+.weekly-tracker-container .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px; 
+}
+
+.weekly-tracker-container .header .header-content {
+    text-align: left;
+}
+
+.week-navigation {
+    display: flex;
+    gap: 10px;
+}
+
+.week-navigation button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.week-navigation button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+#days-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.day-item {
+    display: grid;
+    /* Columns: Day Name | Progress Bar | Controls */
+    grid-template-columns: 110px 1fr 100px; 
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+/* Highlight style for the current day */
+.day-item.current-day {
+    background-color: #e9eff5;
+    border: 1px solid var(--primary-color);
+}
+
+.day-name {
+    font-weight: 600;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0 15px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+/* Style for the progress bar when the goal is met (>= 5 sessions) */
+.progress-bar-fill.completed {
+    background-color: var(--completed-color);
+}
+
+.day-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.day-counter {
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+    min-width: 25px;
+    text-align: center;
+}
+
+/* Shared styles for increment and decrement buttons */
+.increment-btn,
+.decrement-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #e9eff5;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    line-height: 1;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.increment-btn:hover,
+.decrement-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .main-container {
+        /* Stack the columns on smaller screens */
+        grid-template-columns: 1fr;
+    }
+}

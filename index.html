@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Dashboard</title>
+    
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/15889/15889173.png" />
+    
+    <link rel="stylesheet" href="style.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="todo-container">
+            <header class="header">
+                <h1>My Tasks</h1>
+                <p id="date-display"></p>
+            </header>
+            
+            <form id="task-form" class="task-input-form">
+                <input 
+                    type="text" 
+                    id="task-input" 
+                    placeholder="e.g. Edit readme on github, " 
+                    aria-label="New task" 
+                    required 
+                />
+                <button type="submit" aria-label="Add task">+</button>
+            </form>
+            
+            <ul id="task-list">
+            </ul>
+        </div>
+
+        <div class="weekly-tracker-container">
+            <header class="header">
+                <div class="header-content">
+                    <h1>Focus Tracker</h1>
+                    <p id="week-display">Track your focus sessions</p>
+                </div>
+                <div class="week-navigation">
+                    <button id="prev-week-btn" aria-label="Previous week">&lt;</button>
+                    <button id="next-week-btn" aria-label="Next week">&gt;</button>
+                </div>
+            </header>
+            
+            <ul id="days-list">
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
