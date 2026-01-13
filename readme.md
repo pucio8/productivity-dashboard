@@ -1,7 +1,6 @@
 # 🚀 Productivity Dashboard (v1.2.0)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PWA Ready](https://img.shields.io/badge/PWA-Ready-orange.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PWA Ready](https://img.shields.io/badge/PWA-Ready-orange.svg)](#installation--pwa) ![Author](https://img.shields.io/badge/Made%20by-Pucio8-blue.svg)
 
 A sleek, modern dashboard featuring a To-Do List and a Weekly Focus Tracker. Built with pure Vanilla JS and now upgraded to a **Progressive Web App (PWA)** with gamified celebrations.
 
