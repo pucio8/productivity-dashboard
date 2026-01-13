@@ -299,7 +299,279 @@ body {
     transition: all 0.3s;
 }
 
-.increment-btn:hover,
+.increment-btn:hover,/**
+* @file style.css
+* @description Refined stylesheet with enhanced mobile responsiveness.
+* @version 1.2.1
+*/
+
+/* --- CSS Custom Properties (Variables) --- */
+:root {
+   --bg-color: #f4f7f9;
+   --container-bg: #ffffff;
+   --primary-color: #4a90e2;
+   --primary-hover-color: #357abd;
+   --text-color: #333333;
+   --secondary-text-color: #888888;
+   --border-color: #e0e0e0;
+   --shadow-color: rgba(0, 0, 0, 0.08);
+   --delete-color: #e74c3c;
+   --delete-hover-color: #c0392b;
+   --completed-color: #2ecc71; 
+   --font-family: 'Poppins', sans-serif;
+}
+
+/* --- Base Styles & Reset --- */
+*, *::before, *::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   font-family: var(--font-family);
+   background: linear-gradient(135deg, #ece9e6, #ffffff);
+   color: var(--text-color);
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   min-height: 100vh;
+   padding: 40px 20px;
+}
+
+/* --- Main Layout --- */
+.main-container {
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+   width: 100%;
+   max-width: 1200px;
+}
+
+.dashboard-grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 30px;
+}
+
+/* --- Top Weekly Summary Bar --- */
+.overall-summary-container {
+   width: 100%;
+   padding: 25px 30px;
+   background: var(--container-bg);
+   border-radius: 16px;
+   box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.summary-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 15px;
+}
+
+.summary-header h2 {
+   font-size: 1.2rem;
+   font-weight: 600;
+}
+
+#weekly-total-text {
+   font-weight: 600;
+   color: var(--primary-color);
+}
+
+.progress-bar-container.large {
+   height: 16px;
+   margin: 0;
+   width: 100%;
+}
+
+/* --- Shared Component Styles --- */
+.todo-container, .weekly-tracker-container {
+   padding: 30px;
+   background: var(--container-bg);
+   border-radius: 16px;
+   box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.header {
+   text-align: center;
+   margin-bottom: 25px;
+   border-bottom: 1px solid var(--border-color);
+   padding-bottom: 20px;
+}
+
+.header h1 {
+   font-weight: 600;
+   margin-bottom: 5px;
+   font-size: 1.5rem;
+}
+
+.header p {
+   color: var(--secondary-text-color);
+   font-size: 0.9em;
+}
+
+/* --- To-Do List Styles --- */
+.task-input-form {
+   display: flex;
+   gap: 10px;
+   margin-bottom: 25px;
+}
+
+#task-input {
+   flex-grow: 1;
+   padding: 12px 15px;
+   border: 1px solid var(--border-color);
+   border-radius: 8px;
+   font-size: 1rem;
+   font-family: var(--font-family);
+   min-width: 0; /* Prevents input from pushing container width */
+}
+
+.task-input-form button {
+   flex-shrink: 0;
+   width: 45px;
+   height: 45px;
+   border: none;
+   background: var(--primary-color);
+   color: white;
+   font-size: 1.8rem;
+   border-radius: 8px;
+   cursor: pointer;
+}
+
+#task-list li {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 12px 15px;
+   background-color: var(--bg-color);
+   border: 1px solid var(--border-color);
+   border-radius: 8px;
+   margin-bottom: 10px;
+   word-break: break-word;
+}
+
+/* --- Weekly Tracker Styles --- */
+.weekly-tracker-container .header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.week-navigation {
+   display: flex;
+   gap: 8px;
+}
+
+.week-navigation button {
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+   border: 1px solid var(--border-color);
+   background: transparent;
+   cursor: pointer;
+   font-weight: bold;
+}
+
+.day-item {
+   display: grid;
+   grid-template-columns: 110px 1fr 100px; 
+   align-items: center;
+   padding: 10px;
+   border-radius: 8px;
+   gap: 5px;
+}
+
+.day-item.current-day {
+   background-color: #e9eff5;
+   border: 1px solid var(--primary-color);
+}
+
+.progress-bar-container {
+   height: 12px;
+   background-color: #e0e0e0;
+   border-radius: 6px;
+   overflow: hidden;
+}
+
+.progress-bar-fill {
+   height: 100%;
+   width: 0%;
+   background-color: var(--primary-color);
+   transition: width 0.4s ease-in-out;
+}
+
+.progress-bar-fill.completed {
+   background-color: var(--completed-color);
+}
+
+.day-controls {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   gap: 8px;
+}
+
+.day-counter {
+   min-width: 20px;
+   text-align: center;
+   font-weight: 600;
+}
+
+/* --- RESPONSIVE FIXES --- */
+
+/* For Tablets and smaller (stack columns) */
+@media (max-width: 900px) {
+   .dashboard-grid {
+       grid-template-columns: 1fr;
+   }
+}
+
+/* For Phones (optimize internal layouts) */
+@media (max-width: 600px) {
+   body {
+       padding: 20px 10px;
+   }
+
+   .todo-container, .weekly-tracker-container, .overall-summary-container {
+       padding: 20px 15px; /* Less padding on small screens */
+   }
+
+   /* Stack Tracker Item Elements */
+   .day-item {
+       grid-template-columns: 1fr auto; /* Day name left, controls right */
+       row-gap: 12px;
+       padding: 15px 10px;
+   }
+
+   .day-name {
+       font-size: 0.95rem;
+   }
+
+   /* Move Progress Bar to its own row below name and controls */
+   .day-item .progress-bar-container {
+       grid-column: 1 / span 2; 
+       margin: 0;
+       height: 10px;
+   }
+
+   /* Make navigation header stack if title is long */
+   .weekly-tracker-container .header {
+       flex-direction: column;
+       gap: 15px;
+       text-align: center;
+   }
+
+   .weekly-tracker-container .header .header-content {
+       text-align: center;
+   }
+
+   .summary-header h2 {
+       font-size: 1rem;
+   }
+}
 .decrement-btn:hover {
     background-color: var(--primary-color);
     color: white;
