@@ -15,49 +15,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
     <div class="main-container">
+        
+        <header class="overall-summary-container">
+            <div class="summary-info">
+                <span class="summary-label">Weekly Focus Goal</span>
+                <span id="weekly-total-text">0 / 25 sessions</span>
+            </div>
+            <div class="progress-bar-container large">
+                <div id="weekly-progress-fill" class="progress-bar-fill"></div>
+            </div>
+        </header>
 
-        <div class="todo-container">
-            <header class="header">
-                <h1>My Tasks</h1>
-                <p id="date-display"></p>
-            </header>
+        <div class="dashboard-grid">
             
-            <form id="task-form" class="task-input-form">
-                <input 
-                    type="text" 
-                    id="task-input" 
-                    placeholder="e.g. Edit readme on github, " 
-                    aria-label="New task" 
-                    required 
-                />
-                <button type="submit" aria-label="Add task">+</button>
-            </form>
-            
-            <ul id="task-list">
-            </ul>
-        </div>
+            <section class="todo-container">
+                <header class="header">
+                    <h1>My Tasks</h1>
+                    <p id="date-display"></p>
+                </header>
+                
+                <form id="task-form" class="task-input-form">
+                    <input 
+                        type="text" 
+                        id="task-input" 
+                        placeholder="e.g. Edit readme on github" 
+                        aria-label="New task" 
+                        required 
+                    />
+                    <button type="submit" aria-label="Add task">+</button>
+                </form>
+                
+                <ul id="task-list">
+                    </ul>
+            </section>
 
-        <div class="weekly-tracker-container">
-            <header class="header">
-                <div class="header-content">
-                    <h1>Focus Tracker</h1>
-                    <p id="week-display">Track your focus sessions</p>
-                </div>
-                <div class="week-navigation">
-                    <button id="prev-week-btn" aria-label="Previous week">&lt;</button>
-                    <button id="next-week-btn" aria-label="Next week">&gt;</button>
-                </div>
-            </header>
-            
-            <ul id="days-list">
-            </ul>
-        </div>
+            <section class="weekly-tracker-container">
+                <header class="header">
+                    <div class="header-content">
+                        <h1>Focus Tracker</h1>
+                        <p id="week-display">Track your focus sessions</p>
+                    </div>
+                    <div class="week-navigation">
+                        <button id="prev-week-btn" aria-label="Previous week">&lt;</button>
+                        <button id="next-week-btn" aria-label="Next week">&gt;</button>
+                    </div>
+                </header>
+                
+                <ul id="days-list">
+                    </ul>
+            </section>
 
-    </div>
-
-</body>
+        </div> </div> 
+        <script>
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch((err) => console.log('Service Worker Failed', err));
+            }
+          </script>
+    </body>
 </html>

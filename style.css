@@ -1,9 +1,7 @@
 /**
  * @file style.css
- * @description Main stylesheet for the To-Do & Focus Tracker application.
- * @version 1.0.0
+ * @description Updated stylesheet with a top-level weekly summary bar.
  */
-
 
 /* --- CSS Custom Properties (Variables) --- */
 :root {
@@ -17,7 +15,7 @@
     --shadow-color: rgba(0, 0, 0, 0.08);
     --delete-color: #e74c3c;
     --delete-hover-color: #c0392b;
-    --completed-color: #2ecc71; /* Green for completed state */
+    --completed-color: #2ecc71; 
     --font-family: 'Poppins', sans-serif;
 }
 
@@ -41,16 +39,53 @@ body {
 
 /* --- Main Layout --- */
 .main-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column; /* Stack summary on top of the grid */
     gap: 30px;
     width: 100%;
     max-width: 1200px;
 }
 
-/* --- Shared Component Styles --- */
+/* New Grid for the two columns below the summary */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
 
-/* Styles for both left and right column containers */
+/* --- Top Weekly Summary Bar --- */
+.overall-summary-container {
+    width: 100%;
+    padding: 25px 30px;
+    background: var(--container-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.summary-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#weekly-total-text {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Large Progress Bar for the Top */
+.progress-bar-container.large {
+    height: 16px;
+    margin: 0; /* Remove side margins for full width inside container */
+}
+
+/* --- Shared Component Styles --- */
 .todo-container, .weekly-tracker-container {
     padding: 30px;
     background: var(--container-bg);
@@ -58,7 +93,6 @@ body {
     box-shadow: 0 8px 30px var(--shadow-color);
 }
 
-/* Shared header styles for both containers */
 .header {
     text-align: center;
     margin-bottom: 25px;
@@ -138,10 +172,6 @@ body {
     background-color: #e9eff5;
 }
 
-#task-list li span {
-    flex-grow: 1;
-}
-
 .delete-btn {
     background: transparent;
     border: none;
@@ -159,13 +189,10 @@ body {
 }
 
 /* --- Weekly Tracker Styles (Right Column) --- */
-
-/* Overrides for the tracker header to accommodate navigation */
 .weekly-tracker-container .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 15px; 
 }
 
 .weekly-tracker-container .header .header-content {
@@ -190,7 +217,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s;
 }
 
 .week-navigation button:hover {
@@ -208,7 +235,6 @@ body {
 
 .day-item {
     display: grid;
-    /* Columns: Day Name | Progress Bar | Controls */
     grid-template-columns: 110px 1fr 100px; 
     align-items: center;
     padding: 10px;
@@ -216,7 +242,6 @@ body {
     transition: background-color 0.3s;
 }
 
-/* Highlight style for the current day */
 .day-item.current-day {
     background-color: #e9eff5;
     border: 1px solid var(--primary-color);
@@ -243,7 +268,6 @@ body {
     transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
 }
 
-/* Style for the progress bar when the goal is met (>= 5 sessions) */
 .progress-bar-fill.completed {
     background-color: var(--completed-color);
 }
@@ -262,7 +286,6 @@ body {
     text-align: center;
 }
 
-/* Shared styles for increment and decrement buttons */
 .increment-btn,
 .decrement-btn {
     width: 30px;
@@ -271,10 +294,9 @@ body {
     background-color: #e9eff5;
     color: var(--primary-color);
     font-size: 1.5rem;
-    line-height: 1;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s;
 }
 
 .increment-btn:hover,
@@ -285,8 +307,7 @@ body {
 
 /* --- Responsive Design --- */
 @media (max-width: 900px) {
-    .main-container {
-        /* Stack the columns on smaller screens */
+    .dashboard-grid {
         grid-template-columns: 1fr;
     }
 }

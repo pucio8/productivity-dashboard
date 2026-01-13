@@ -1,0 +1,16 @@
+{
+    "name": "Productivity Dashboard",
+    "short_name": "ProdDash",
+    "description": "Minimalist task manager and focus tracker.",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4a90e2",
+    "icons": [
+      {
+        "src": "https://cdn-icons-png.flaticon.com/512/15889/15889173.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
