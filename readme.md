@@ -21,7 +21,7 @@ A sleek, modern dashboard featuring a To-Do List and a Weekly Focus Tracker. Bui
 - **Date Display**: Automatically tracks and displays the current date.
 
 ### Weekly Focus Tracker
-- **Daily Goals**: Reach 5 sessions a day to turn your progress bar green and trigger a celebration burst 🎉.
+- **Daily Goals**: Reach 5 sessions a day to turn your progress bar green and trigger a celebration burst .
 - **Weekly Goal (25 sessions)**: Track your overall weekly effort with a new global progress bar and a grand fanfare upon completion 🏆.
 - **Time Travel**: Navigate through weeks to review your historical focus data.
 
